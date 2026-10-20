@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#155eef">
+<title>BBN Blue Bird Network</title>
+<style>
+:root{--blue:#155eef;--ink:#172033;--muted:#667085;--line:#e5eaf2;--bg:#f5f8ff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,5vw,64px);background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
+.brand{font-weight:800;color:var(--blue);font-size:19px}.brand span{margin-right:8px}
+button,a{font:inherit}.btn{border:0;border-radius:10px;padding:12px 18px;background:var(--blue);color:#fff;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px}
+.btn.light{background:#fff;color:var(--blue);border:1px solid #d7e2ff}.hero{padding:76px 20px;text-align:center;color:white;background:linear-gradient(135deg,#1546bd,#438bff)}
+.hero h1{font-size:clamp(32px,5vw,52px);margin:0 0 14px}.hero p{max-width:680px;margin:0 auto;line-height:1.75;color:#eef4ff}.hero .btn{margin-top:24px}
+main{width:min(980px,92%);margin:30px auto 56px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,30px);margin:18px 0;box-shadow:0 8px 24px #17346b0a}
+h2{margin:0 0 12px;font-size:24px}p{line-height:1.8}.muted{color:var(--muted)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{background:#edf3ff;color:#2456b8;border-radius:99px;padding:6px 11px;font-size:13px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.feature{background:#f8faff;border:1px solid var(--line);border-radius:13px;padding:18px}.feature h3{margin:0 0 6px}.feature p{margin:0;color:var(--muted);font-size:14px}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.field{display:block;margin:12px 0}.field span{display:block;font-size:14px;font-weight:700;margin-bottom:6px}.field input{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:9px;font:inherit}.social{width:100%;background:white;border:1px solid #d0d5dd;border-radius:10px;padding:12px;margin:6px 0;cursor:pointer;font-weight:650;color:#202939}.social:hover{background:#f8fafc}.notice{font-size:13px;color:var(--muted);background:#f8fafc;padding:12px;border-radius:9px;margin-top:12px}.status{font-size:14px;color:#155eef;margin-top:12px;overflow-wrap:anywhere}.hidden{display:none}
+footer{text-align:center;padding:26px 15px;background:#101828;color:#e5e7eb;font-size:14px}
+@media(max-width:650px){header{padding:14px}.brand{font-size:16px}.hero{padding:56px 18px}.auth-grid{grid-template-columns:1fr}.card{border-radius:14px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span>🐦</span>BBN Blue Bird Network</div>
+  <a class="btn" href="#account">Open</a>
+</header>
+<section class="hero">
+  <h1>Connect. Collaborate. Grow.</h1>
+  <p>Blue Bird Network is a digital community concept for connecting people and businesses, sharing ideas, and discovering new opportunities around the world.</p>
+  <a class="btn light" href="#about">Explore BBN</a>
+</section>
+<main>
+  <section class="card" id="about">
+    <h2>About Blue Bird Network</h2>
+    <p>Our goal is to make it easier for individuals and businesses to connect, collaborate, and access useful digital services through one welcoming platform.</p>
+    <div class="tags"><span class="tag">Community-building</span><span class="tag">Online Services</span><span class="tag">Social Impact</span><span class="tag">Technology</span></div>
+  </section>
+  <section class="card">
+    <h2>What you can do</h2>
+    <div class="features">
+      <div class="feature"><h3>🌐 Global network</h3><p>Meet people and discover new connections.</p></div>
+      <div class="feature"><h3>🤝 Collaboration</h3><p>Share ideas and explore opportunities.</p></div>
+      <div class="feature"><h3>🔐 Account access</h3><p>Plan a personal account and profile experience.</p></div>
+    </div>
+  </section>
+  <section class="card" id="account">
+    <h2>Create an account or sign in</h2>
+    <p class="muted">This is the starter website interface. Real account authentication must be connected before public launch.</p>
+    <div class="auth-grid">
+      <div>
+        <h3>Continue with a provider</h3>
+        <button class="social" onclick="providerInfo('Google')"><span style="color:#4285f4">G</span> Continue with Google / Gmail</button>
+        <button class="social" onclick="providerInfo('Apple')"><span style="color:#111">●</span> Continue with Apple</button>
+        <button class="social" onclick="providerInfo('Microsoft')"><span style="color:#0078d4">▦</span> Continue with Microsoft</button>
+        <div class="notice">These provider buttons are visual placeholders until Google, Apple, and Microsoft authentication are configured.</div>
+      </div>
+      <div>
+        <h3>Preview account form</h3>
+        <form id="demoForm">
+          <label class="field"><span>Name</span><input id="name" autocomplete="name" placeholder="Your name" required></label>
+          <label class="field"><span>Email</span><input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <button class="btn" type="submit" style="width:100%">Preview profile</button>
+        </form>
+        <div id="profile" class="notice hidden"></div>
+        <div class="notice">Preview only: this form does not create or save a secure account.</div>
+      </div>
+    </div>
+    <div id="status" class="status" role="status"></div>
+  </section>
+</main>
+<footer>© 2026 BBN Blue Bird Network</footer>
+<script>
+function providerInfo(provider){
+  document.getElementById('status').textContent =
+    provider + ' sign-in is not connected yet. Set up an authentication provider before using real accounts.';
+}
+document.getElementById('demoForm').addEventListener('submit',function(event){
+  event.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const profile=document.getElementById('profile');
+  profile.textContent='Welcome, '+name+'! Preview email: '+email;
+  profile.classList.remove('hidden');
+  document.getElementById('status').textContent='Profile preview shown only in this browser session; no account was created.';
+});
+</script>
+</body>
+</html>
